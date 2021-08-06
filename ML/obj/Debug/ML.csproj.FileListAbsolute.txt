@@ -1,0 +1,4 @@
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\EXAMENES\ExamenLeenkenGroup\JSanchezCRUDJavaScrip\ML\bin\Debug\ML.dll
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\EXAMENES\ExamenLeenkenGroup\JSanchezCRUDJavaScrip\ML\bin\Debug\ML.pdb
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\EXAMENES\ExamenLeenkenGroup\JSanchezCRUDJavaScrip\ML\obj\Debug\ML.dll
+C:\Users\Alien7\Documents\Jose Dai Niz No Rai Sanchez Pizano\EXAMENES\ExamenLeenkenGroup\JSanchezCRUDJavaScrip\ML\obj\Debug\ML.pdb

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JSanchezCRUDJavaScripModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CatEntidadFederativa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroNomina" Type="varchar" MaxLength="10" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="ApellidoPaterno" Type="varchar" MaxLength="100" />
+    <Property Name="ApellidoMaterno" Type="varchar" MaxLength="100" />
+    <Property Name="IdEstado" Type="int" />
+  </EntityType>
+  <Association Name="FK__Empleado__IdEsta__239E4DCF">
+    <End Role="CatEntidadFederativa" Type="Self.CatEntidadFederativa" Multiplicity="0..1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatEntidadFederativa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="IdEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="CatEntidadFederativaGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="CatEntidadFederativaGetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="EmpleadoAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NumeroNomina" Type="varchar" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
+    <Parameter Name="IdEstado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="EmpleadoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="EmpleadoGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="EmpleadoGetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="EmpleadoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
+    <Parameter Name="IdEstado" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="JSanchezCRUDJavaScripModelStoreContainer">
+    <EntitySet Name="CatEntidadFederativa" EntityType="Self.CatEntidadFederativa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Empleado__IdEsta__239E4DCF" Association="Self.FK__Empleado__IdEsta__239E4DCF">
+      <End Role="CatEntidadFederativa" EntitySet="CatEntidadFederativa" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

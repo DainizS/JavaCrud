@@ -1,0 +1,106 @@
+﻿@model ML.Empleado
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Empleado/Empleado.js"></script>
+
+
+<div class="container">
+
+    <div class=" row">
+        <div class=" col-md-12">
+            <h2 >Empleado</h2>
+            <br />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class=" col-md-12">
+            <div class="form-group">
+                <label class="label label-info" >Nombre</label>
+                <input type="text" class="form-control" id="txtNombre" placeholder="Nombre" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class=" col-md-12">
+            <div class="form-group">
+                <label class="label label-info">Apellido Paterno</label>
+                <input type="text" class="form-control" id="txtApellidoPaterno" placeholder="Apellido Paterno" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class=" col-md-12">
+            <div class="form-group">
+                <label class="label label-info">Apellido Materno</label>
+                <input type="text" class="form-control" id="txtApellidoMaterno" placeholder="Apellido Materno" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label class="label label-info">Entidad Federativa</label>
+            <div class="form-group">
+                <select id="ddlEntidades" class=" form-control"></select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1">
+            <button id="boton" type="submit" class="btn btn-success" title="Agregar" onclick="Add()">
+                Agregar
+            </button>
+        </div>
+
+
+        <div class="col-md-1">
+            <button id="boton" class="btn btn-danger" title="Cancelar">
+                Cancelar
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+
+            <div class="modal" id="myModal">
+
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title">Detalle</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <div class="modal-body">
+                            <h5>
+                                Acción completada con éxito
+                            </h5>
+                        </div>
+                        <div class="modal-footer">
+                            @Html.ActionLink("Regresar", "GetAll", "Empleado", htmlAttributes: new { @class = "btn btn-primary  btn-lg" })
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

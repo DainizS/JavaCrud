@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JSanchezCRUDJavaScripModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CatEntidadFederativa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumeroNomina" Type="varchar" MaxLength="10" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="ApellidoPaterno" Type="varchar" MaxLength="100" />
+          <Property Name="ApellidoMaterno" Type="varchar" MaxLength="100" />
+          <Property Name="IdEstado" Type="int" />
+        </EntityType>
+        <Association Name="FK__Empleado__IdEsta__239E4DCF">
+          <End Role="CatEntidadFederativa" Type="Self.CatEntidadFederativa" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatEntidadFederativa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="CatEntidadFederativaGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="CatEntidadFederativaGetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="EmpleadoAdd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NumeroNomina" Type="varchar" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
+          <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
+          <Parameter Name="IdEstado" Type="int" Mode="In" />
+        </Function>
+        <Function Name="EmpleadoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="EmpleadoGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="EmpleadoGetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="EmpleadoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
+          <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
+          <Parameter Name="IdEstado" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="JSanchezCRUDJavaScripModelStoreContainer">
+          <EntitySet Name="CatEntidadFederativa" EntityType="Self.CatEntidadFederativa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Empleado__IdEsta__239E4DCF" Association="Self.FK__Empleado__IdEsta__239E4DCF">
+            <End Role="CatEntidadFederativa" EntitySet="CatEntidadFederativa" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JSanchezCRUDJavaScripModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CatEntidadFederativa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__IdEsta__239E4DCF" FromRole="CatEntidadFederativa" ToRole="Empleado" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumeroNomina" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstado" Type="Int32" />
+          <NavigationProperty Name="CatEntidadFederativa" Relationship="Self.FK__Empleado__IdEsta__239E4DCF" FromRole="Empleado" ToRole="CatEntidadFederativa" />
+        </EntityType>
+        <Association Name="FK__Empleado__IdEsta__239E4DCF">
+          <End Role="CatEntidadFederativa" Type="Self.CatEntidadFederativa" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatEntidadFederativa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JSanchezCRUDJavaScripEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CatEntidadFederativa" EntityType="Self.CatEntidadFederativa" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+          <AssociationSet Name="FK__Empleado__IdEsta__239E4DCF" Association="Self.FK__Empleado__IdEsta__239E4DCF">
+            <End Role="CatEntidadFederativa" EntitySet="CatEntidadFederativa" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <FunctionImport Name="EmpleadoAdd">
+            <Parameter Name="NumeroNomina" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
+            <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
+            <Parameter Name="IdEstado" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="EmpleadoDelete">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="EmpleadoGetById" ReturnType="Collection(JSanchezCRUDJavaScripModel.EmpleadoGetById_Result)">
+          <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CatEntidadFederativaGetAll" ReturnType="Collection(JSanchezCRUDJavaScripModel.CatEntidadFederativaGetAll_Result)" />
+          <FunctionImport Name="EmpleadoGetAll" ReturnType="Collection(JSanchezCRUDJavaScripModel.EmpleadoGetAll_Result)" />
+          <FunctionImport Name="CatEntidadFederativaGetById" ReturnType="Collection(JSanchezCRUDJavaScripModel.CatEntidadFederativaGetById_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="EmpleadoUpdate">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
+            <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
+            <Parameter Name="IdEstado" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="EmpleadoGetById_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="NumeroNomina" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ApellidoPaterno" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ApellidoMaterno" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="IdEstado" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="CatEntidadFederativaGetAll_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="EmpleadoGetAll_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="NumeroNomina" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ApellidoPaterno" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ApellidoMaterno" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="IdEstado" Nullable="true" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="CatEntidadFederativaGetById_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="true" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JSanchezCRUDJavaScripModelStoreContainer" CdmEntityContainer="JSanchezCRUDJavaScripEntities">
+          <EntitySetMapping Name="CatEntidadFederativa">
+            <EntityTypeMapping TypeName="JSanchezCRUDJavaScripModel.CatEntidadFederativa">
+              <MappingFragment StoreEntitySet="CatEntidadFederativa">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleado">
+            <EntityTypeMapping TypeName="JSanchezCRUDJavaScripModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumeroNomina" ColumnName="NumeroNomina" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EmpleadoAdd" FunctionName="JSanchezCRUDJavaScripModel.Store.EmpleadoAdd" />
+          <FunctionImportMapping FunctionImportName="EmpleadoDelete" FunctionName="JSanchezCRUDJavaScripModel.Store.EmpleadoDelete" />
+          <FunctionImportMapping FunctionImportName="EmpleadoGetById" FunctionName="JSanchezCRUDJavaScripModel.Store.EmpleadoGetById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JSanchezCRUDJavaScripModel.EmpleadoGetById_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumeroNomina" ColumnName="NumeroNomina" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CatEntidadFederativaGetAll" FunctionName="JSanchezCRUDJavaScripModel.Store.CatEntidadFederativaGetAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JSanchezCRUDJavaScripModel.CatEntidadFederativaGetAll_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EmpleadoGetAll" FunctionName="JSanchezCRUDJavaScripModel.Store.EmpleadoGetAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JSanchezCRUDJavaScripModel.EmpleadoGetAll_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NumeroNomina" ColumnName="NumeroNomina" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CatEntidadFederativaGetById" FunctionName="JSanchezCRUDJavaScripModel.Store.CatEntidadFederativaGetById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JSanchezCRUDJavaScripModel.CatEntidadFederativaGetById_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EmpleadoUpdate" FunctionName="JSanchezCRUDJavaScripModel.Store.EmpleadoUpdate" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

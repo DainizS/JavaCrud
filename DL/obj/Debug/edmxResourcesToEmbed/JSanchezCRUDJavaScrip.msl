@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JSanchezCRUDJavaScripModelStoreContainer" CdmEntityContainer="JSanchezCRUDJavaScripEntities">
+    <EntitySetMapping Name="CatEntidadFederativa">
+      <EntityTypeMapping TypeName="JSanchezCRUDJavaScripModel.CatEntidadFederativa">
+        <MappingFragment StoreEntitySet="CatEntidadFederativa">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="JSanchezCRUDJavaScripModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumeroNomina" ColumnName="NumeroNomina" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="EmpleadoAdd" FunctionName="JSanchezCRUDJavaScripModel.Store.EmpleadoAdd" />
+    <FunctionImportMapping FunctionImportName="EmpleadoDelete" FunctionName="JSanchezCRUDJavaScripModel.Store.EmpleadoDelete" />
+    <FunctionImportMapping FunctionImportName="EmpleadoGetById" FunctionName="JSanchezCRUDJavaScripModel.Store.EmpleadoGetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JSanchezCRUDJavaScripModel.EmpleadoGetById_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumeroNomina" ColumnName="NumeroNomina" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CatEntidadFederativaGetAll" FunctionName="JSanchezCRUDJavaScripModel.Store.CatEntidadFederativaGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JSanchezCRUDJavaScripModel.CatEntidadFederativaGetAll_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EmpleadoGetAll" FunctionName="JSanchezCRUDJavaScripModel.Store.EmpleadoGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JSanchezCRUDJavaScripModel.EmpleadoGetAll_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumeroNomina" ColumnName="NumeroNomina" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CatEntidadFederativaGetById" FunctionName="JSanchezCRUDJavaScripModel.Store.CatEntidadFederativaGetById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JSanchezCRUDJavaScripModel.CatEntidadFederativaGetById_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="EmpleadoUpdate" FunctionName="JSanchezCRUDJavaScripModel.Store.EmpleadoUpdate" />
+  </EntityContainerMapping>
+</Mapping>
